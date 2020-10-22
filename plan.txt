@@ -1,0 +1,17 @@
+Flaws to implement:
+
+Injection
+- unsanitized SQL
+
+Broken auth
+- easily available session-id token
+
+Cross-site Scripting
+- input not sanitized
+- user can submit form with script tags
+
+Sensitive data exposure
+- Store user credentials in clear text (SQLi to get them and then they are not encrypted)
+
+Security misconfig
+- djangos csrf token missing from html file 
