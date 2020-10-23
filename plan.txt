@@ -1,5 +1,14 @@
 Flaws to implement:
 
+Flawedapp (note app with users) implementation list:
+- users + login
+- show notes
+- add notes
+- store notes to a database
+
+
+
+
 Injection
 - unsanitized SQL
 
