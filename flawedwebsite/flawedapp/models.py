@@ -4,5 +4,5 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Note(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()

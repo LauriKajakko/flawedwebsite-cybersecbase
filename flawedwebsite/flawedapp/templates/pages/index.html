@@ -5,7 +5,28 @@
         <title>Flawedapp</title>
     </head>
 
-    <h1>Note taking app with vulnerabilities :D</h1>
+    <form action='logout/' method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout"/>
+    </form>
+
+    
+    <h1>Webapp with flaws :------D</h1>
+
+    <h2>Notes: </h2>
+    <ul>
+        {% for item in items %}
+        <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add note</h2>
+        <form action="/add" method="POST">
+            {% csrf_token %}
+            <input type="text" name="content"/>
+            <input type="submit"/>
+        </form>
+
 
     
 </html>
