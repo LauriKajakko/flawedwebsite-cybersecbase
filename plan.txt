@@ -1,11 +1,14 @@
 Flaws to implement:
 
 Flawedapp (note app with users) implementation list:
-- users + login
-- show notes
-- add notes
-- store notes to a database
-
+- (done) create a weak admin and leave it to production
+- (done) users + login
+- (done) show notes
+- (done) add notes
+- (done) store notes to a database
+- (done)  make a private/public checkbox and add functionality
+- (done) add multiple users
+- make the app vulnerable to all below
 
 
 
@@ -24,3 +27,4 @@ Sensitive data exposure
 
 Security misconfig
 - djangos csrf token missing from html file 
+- (done)  admin admin :D

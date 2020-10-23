@@ -7,7 +7,7 @@
 
     <form action='logout/' method="POST">
         {% csrf_token %}
-        <input type="submit" value="Logout"/>
+        <input type="submit" value="Logout"/> 
     </form>
 
     
@@ -22,9 +22,14 @@
 
     <h2>Add note</h2>
         <form action="/add" method="POST">
+            <div>
             {% csrf_token %}
             <input type="text" name="content"/>
             <input type="submit"/>
+            </div>
+            <div>
+                post privately: <input type="checkbox" name="private"/>
+            </div>
         </form>
 
 
