@@ -8,6 +8,7 @@ Flawedapp (note app with users) implementation list:
 - (done) store notes to a database
 - (done)  make a private/public checkbox and add functionality
 - (done) add multiple users
+- add search and make it vulnerable to both xss and SQLi
 - make the app vulnerable to all below
 
 
