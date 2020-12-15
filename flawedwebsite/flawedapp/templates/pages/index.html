@@ -11,22 +11,16 @@
     </form>
 
     
-    <h1>Webapp with flaws :------D</h1>
+    <h1>Webapp with flaws</h1>
 
     <h2>Notes: </h2>
 
     <ul>
         {% for item in items %}
-        <li>{{item}}</li>
+        <li>{{item|safe}}</li>
         {% endfor %}
     </ul>
-    <div>
-        <form action="/" method="POST">
-        {% csrf_token %}
-        <input type="text" name="searchbox"/>
-        <input type="submit" value="search"/>
-        </form>
-    </div>
+    
 
     <h2>Add note</h2>
         <form action="/add" method="POST">
@@ -41,5 +35,6 @@
         </form>
 
 
+    
     
 </html>

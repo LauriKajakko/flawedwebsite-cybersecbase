@@ -8,29 +8,25 @@ from django.db.models import Q
 
 @login_required
 def homePageView(request):
-		
-	items = []
+        
+    return render(request, 'pages/home.html')
 
-	if request.POST.get('searchbox') == '':
-			print(request.POST.get('searchbox'))
-			for note in Note.objects.filter(Q(private = False) | Q(owner = request.user)):
-					items.append(note.content + ' -added by %s' % note.owner)
-	else:
-			searchFilter = request.POST.get('searchbox')
-			for note in Note.objects.filter(Q(private = False) | Q(owner = request.user)):
-    					items.append(note.content + ' -added by %s' % note.owner)
-			items.filter(searchFilter)	
-	return render(request, 'pages/index.html', {'items' : items})
+def noteView(request):
+    items = []
 
-@login_required
+    for note in Note.objects.filter(Q(private = False)):
+            items.append(note.content + ' -added by %s' % note.owner)
+            
+    return render(request, 'pages/index.html', {'items' : items})
+
 def addView(request):
-	priv = False
-	if request.POST.get('private') == 'on':
-			priv=True
+    priv = False
+    if request.POST.get('private') == 'on':
+            priv=True
 
-	note = Note(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
-	note.save()
+    note = Note(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
+    note.save()
 
-	return redirect('/')
+    return redirect('/')
 
-	
+    
