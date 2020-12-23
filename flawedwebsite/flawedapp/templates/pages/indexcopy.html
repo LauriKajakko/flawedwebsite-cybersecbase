@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Flawedapp</title>
+    </head>
+
+    <form action='logout/' method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout"/> 
+    </form>
+
+    
+    <h1>another noteview</h1>
+
+    <h2>Notes: </h2>
+
+    <ul>
+        {% for item in items %}
+        <li>{{item|safe}}</li>
+        {% endfor %}
+    </ul>
+    
+
+    <h2>Add note</h2>
+        <form action="/add2" method="POST">
+            <div>
+            {% csrf_token %}
+            <input type="text" name="content"/>
+            <input type="submit"/>
+            </div>
+            <div>
+                post privately: <input type="checkbox" name="private"/>
+            </div>
+        </form>
+
+
+    
+    
+</html>

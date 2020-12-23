@@ -10,15 +10,22 @@
         <input type="submit" value="Logout"/> 
     </form>
 
-    <input type="button" value="Go to new location" onclick="newLocation()"> 
+    <input type="button" value="Go to Notes with xss vulnerability" onclick="newLocation()"> 
+    <input type="button" value="Go to Notes with SQLi vulnerability" onclick="newLocation2()"> 
 
     <h1>Webapp with flaws</h1>
 
-    
+    <p> You can also logout and still be able to go to the xss notes by just typing /index to url</p>
+    <p> (broken auth) </p>
     <script> 
         function newLocation() { 
             window.location.href="/index"; 
-        } 
+        }
+    </script> 
+    <script> 
+        function newLocation2() { 
+            window.location.href="/indexcopy"; 
+        }
     </script> 
 
     

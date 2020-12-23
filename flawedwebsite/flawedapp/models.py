@@ -7,3 +7,8 @@ class Note(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     private = models.BooleanField()
+
+class Note2(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    private = models.BooleanField()
