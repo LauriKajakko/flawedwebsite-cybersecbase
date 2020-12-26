@@ -20,6 +20,15 @@
         <li>{{item|safe}}</li>
         {% endfor %}
     </ul>
+
+    <h2>Write an username to go to users own site</h2>
+    <form action="/unsafequery" method="GET">
+        <div>
+        {% csrf_token %}
+        <input type="text" name="query"/>
+        <input type="submit"/>
+        </div>
+    </form>
     
 
     <h2>Add note</h2>

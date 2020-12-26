@@ -43,6 +43,9 @@ def add2View(request):
     if request.POST.get('private') == 'on':
             priv=True
 
+
+    # query = ('INSERT INTO flawedapp_notes2 (content, private, owner_id) VALUES (\'%s\', v)')
+
     note = Note2(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
     note.save()
 
@@ -59,4 +62,25 @@ def searchView(request):
         items.append(note)
 
     return render(request, 'pages/home.html', {'items' : items})
+
+
+def userView(request):
+    priv = False
+    if request.POST.get('private') == 'on':
+            priv=True
+
+    note = Note(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
+    note.save()
+
+    return redirect('/index')
     
+
+def unsafequery(request):
+    priv = False
+    if request.POST.get('private') == 'on':
+            priv=True
+
+    note = Note(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
+    note.save()
+
+    return redirect('/index')
