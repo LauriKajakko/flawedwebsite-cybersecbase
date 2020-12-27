@@ -12,6 +12,12 @@
 
     
     <h1>userview</h1>
+
+    <ul>
+        {% for item in items %}
+        <li>{{item|safe}}</li>
+        {% endfor %}
+    </ul>
     
     
 </html>

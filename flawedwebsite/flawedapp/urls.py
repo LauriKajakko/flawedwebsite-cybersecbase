@@ -8,6 +8,6 @@ urlpatterns = [
     path('add', addView, name='add'),
     path('add2', add2View, name='add2'),
     path('search', searchView, name='search'),
-    path('userview', userView, name='userview'),
+    path('userview/', userView, name='userview'),
     path('unsafequery', unsafequery, name='unsafequery')
 ]

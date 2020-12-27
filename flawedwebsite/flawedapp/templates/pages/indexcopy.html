@@ -22,7 +22,7 @@
     </ul>
 
     <h2>Write an username to go to users own site</h2>
-    <form action="/unsafequery" method="GET">
+    <form action="/unsafequery" method="POST">
         <div>
         {% csrf_token %}
         <input type="text" name="query"/>
@@ -44,6 +44,5 @@
         </form>
 
 
-    
     
 </html>

@@ -65,22 +65,22 @@ def searchView(request):
 
 
 def userView(request):
-    priv = False
-    if request.POST.get('private') == 'on':
-            priv=True
+    usernameQuery = request.GET.get('query', '0')
 
-    note = Note(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
-    note.save()
+    print(usernameQuery)
 
-    return redirect('/index')
+    query = ('SELECT * FROM flawedapp_note WHERE owner_id=(SELECT id FROM auth_user WHERE username=\'%s\')' % usernameQuery)
+    print(query)
+    notes = Note.objects.raw(query)
+
+    items = []
+
+    for note in notes:
+        print(note.content)
+        items.append(note.content)
+
+    return render(request, 'pages/userpage.html', {'items' : items})
     
 
 def unsafequery(request):
-    priv = False
-    if request.POST.get('private') == 'on':
-            priv=True
-
-    note = Note(owner = request.user, content = request.POST.get('content', '').strip(), private = priv)	
-    note.save()
-
-    return redirect('/index')
+    return redirect('/userview/?query=%s' % request.POST.get('query'))
